@@ -16,8 +16,11 @@ def cuenta_letras(cadena,letra):
     return (1 if cadena[0] == letra else 0) + cuenta_letras(cadena[1:], letra)
 
 def binario_decimal(n):
-    if n==0:
-        return
+    if n == 0:
+        return "0"
+    if n == 1:
+        return "1"
+    return binario_decimal(n // 2) + str(n % 2)
 
 def calcula_digitos(n):
         n = abs(n)
@@ -50,7 +53,9 @@ def menu():
                 cadena = input("Ingresa la cadena: ")
                 letra = input("Ingresa la letra a buscar: ")
                 print(f"La letra '{letra}' aparece {cuenta_letras(cadena, letra)} veces.")
-
+            case "4":
+                numero = int(input("Ingresa un número decimal: "))
+                print("Binario:", binario_decimal(numero))
             case"5":
                 numero=int(input("Ingrese un numero: "))
                 print("Resultado: ","el numero tiene",calcula_digitos(numero),"digitos")
